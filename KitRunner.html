@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kit Runner - StudyHub Express</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f9ff;
+      color: #1f2f46;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 72px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1f4037;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: #04c51ee1;
+    }
+
+    main {
+      flex: 1;
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    main h1 {
+      font-size: 2.5rem;
+      color: #1caf0f;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    main p.intro {
+      font-size: 1.1rem;
+      color: #333;
+      max-width: 700px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    section {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+      margin-bottom: 2rem;
+    }
+
+    section h2 {
+      color: #1f4037;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    section ul {
+      list-style-type: disc;
+      padding-left: 1.2rem;
+      color: #444;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    section ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    /* Botão voltar para a home */
+    .btn-voltar {
+      display: inline-block;
+      background: #8ee920;
+      color: #1f2f46;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 0 12px #8ee920;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .btn-voltar:hover {
+      background: #1f2f46;
+      color: #8ee920;
+      box-shadow: 0 0 18px #1f2f46;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #1f2f46;
+      background: #e8fbf1;
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="IFex.png" alt="StudyHub Logo" />
+    <nav>
+      <a href="IFex.html">Início</a>
+      <a href="Sobre.html" aria-current="page">Sobre o App</a>
+      <a href="Function.html">Como Funciona</a>
+      <a href="KitRunner.html" aria-current="page">Kit Runner</a>
+      <a href="Ajuda.html">Ajuda</a>
+      <button class="neon-button">+ Criar Pedido</button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Sobre o Kit Runner</h1>
+    <p class="intro">O Kit Runner é um conjunto de ferramentas e equipamentos pensados para facilitar o trabalho dos Runners, garantindo mais eficiência, segurança e qualidade nas entregas realizadas dentro do StudyHub Express.</p>
+
+    <section>
+      <h2>O que vem no Kit Runner?</h2>
+      <ul>
+        <li><strong>Bolsa térmica:</strong> Mantém os itens protegidos e com temperatura ideal durante o transporte.</li>
+        <li><strong>Power bank portátil:</strong> Para garantir que o Runner mantenha o celular carregado durante as entregas.</li>
+        <li><strong>Identificação personalizada:</strong> Camiseta e crachá para facilitar a identificação dos Runners no campus.</li>
+        <li><strong>Kit de higiene:</strong> Máscaras descartáveis, álcool em gel e lenços para segurança e saúde.</li>
+        <li><strong>Equipamentos tecnológicos:</strong> Suporte para celular, fones de ouvido e carregadores extra.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Vantagens de ser um Runner equipado</h2>
+      <ul>
+        <li>Maior agilidade e segurança na entrega dos pedidos.</li>
+        <li>Melhor comunicação com os clientes graças aos equipamentos tecnológicos.</li>
+        <li>Reconhecimento e confiança dentro da comunidade estudantil.</li>
+        <li>Maior conforto e praticidade durante as rotas.</li>
+        <li>Participação em programas de incentivo exclusivos para Runners equipados.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Como receber o seu Kit Runner?</h2>
+      <p>Para receber o Kit Runner, você precisa se cadastrar como Runner no app e passar por uma breve avaliação de perfil e disponibilidade. Após aprovação, o kit será entregue em seu endereço ou ponto de retirada no campus.</p>
+      <p>Fique atento às notificações do app para receber todas as instruções e benefícios exclusivos!</p>
+    </section>
+
+    <a href="IFex.html" class="btn-voltar">← Voltar para Início</a>
+  </main>
+
+  <footer>
+    &copy; 2025 IFExpress — Por estudantes, para estudantes. #CorujaExpress 🦉
+  </footer>
+</body>
+
+</html>

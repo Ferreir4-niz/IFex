@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ajuda - StudyHub Express</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f9ff;
+      color: #1f2f46;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 72px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1f4037;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #04c51ee1;
+    }
+
+    main {
+      flex: 1;
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    main h1 {
+      font-size: 2.5rem;
+      color: #1caf0f;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    section.faq {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+      margin-bottom: 2rem;
+    }
+
+    section.faq h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #1f4037;
+    }
+
+    section.faq p {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: #333;
+    }
+
+    /* Botão voltar para a home */
+    .btn-voltar {
+      display: inline-block;
+      background: #8ee920;
+      color: #1f2f46;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 0 12px #8ee920;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .btn-voltar:hover {
+      background: #1f2f46;
+      color: #8ee920;
+      box-shadow: 0 0 18px #1f2f46;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #1f2f46;
+      background: #e8fbf1;
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="IFex.png" alt="StudyHub Logo" />
+    <nav>
+      <a href="IFex.html">Início</a>
+      <a href="Sobre.html">Sobre o App</a>
+      <a href="Function.html">Como Funciona</a>
+      <a href="KitRunner.html">Kit Runner</a>
+      <a href="Ajuda.html" aria-current="page">Ajuda</a>
+      <button class="neon-button">+ Criar Pedido</button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Ajuda & Suporte</h1>
+
+    <section class="faq">
+      <h2>Como faço para criar um pedido?</h2>
+      <p>Na página inicial, clique no tipo de pedido que deseja e preencha o formulário com os detalhes necessários. Depois, clique em "Enviar Pedido".</p>
+    </section>
+
+    <section class="faq">
+      <h2>Quais tipos de pedidos estão disponíveis?</h2>
+      <p>Você pode escolher entre buscar algo esquecido, empréstimo de itens, impressão & encadernação, comprar novos materiais, emprestar power bank e grupos & missões coletivas.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Como recebo meus pedidos?</h2>
+      <p>Os Runners entregarão os pedidos no local e horário indicados por você no formulário. Você pode acompanhar o status e a localização em tempo real.</p>
+    </section>
+
+    <section class="faq">
+      <h2>O que faço se tiver problemas com meu pedido?</h2>
+      <p>Entre em contato com o suporte pelo e-mail suporte@IFExpress.com ou utilize o chat de ajuda no app para resolver qualquer problema.</p>
+    </section>
+
+    <a href="IFex.html" class="btn-voltar">← Voltar para Início</a>
+  </main>
+
+  <footer>
+    &copy; 2025 IFExpress — Por estudantes, para estudantes. #CorujaExpress 🦉
+  </footer>
+</body>
+
+</html>

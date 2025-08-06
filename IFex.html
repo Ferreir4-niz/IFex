@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyHub Express</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #f4f9ff;
+      color: #1f2f46;
+    }
+    header {
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    }
+    header img {
+      height: 72px;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    nav a {
+      text-decoration: none;
+      color: #1f4037;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #04c51ee1;
+    }
+    .neon-button {
+      background: #8ee920;
+      color: #1f2f46;
+      padding: 0.6rem 1.4rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 0 12px #8ee920;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+    .neon-button:hover {
+      background: #1f2f46;
+      color: #8ee920;
+      box-shadow: 0 0 18px #1f2f46;
+    }
+    .hero {
+      padding: 4rem 2rem;
+    background: linear-gradient(135deg, #1f4037, #a8e063);
+      color: white;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
+    }
+    .glass-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 3rem;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      color: #1f2f46;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      color: #1caf0f;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #1f2f46;
+      background: #e8fbf1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="IFex.png" alt="StudyHub Logo">
+    <nav>
+      <a href="IFex.html">Início</a> 
+      <a href="Sobre.html">Sobre o App</a>
+      <a href="Function.html">Como Funciona</a>
+      <a href="KitRunner.html">Kit Runner</a>
+      <a href="Ajuda.html">Ajuda</a>
+      <a href="Pedido.html"><button class="neon-button">+ Criar Pedido</button></a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Seu problema acadêmico, resolvido AGORA.</h1>
+    <p>Com o StudyHub Express, você recebe aquele carregador esquecido, a apostila impressa ou até um notebook emprestado em menos de 1h – direto no campus. Tudo por preços simbólicos e com a ajuda de colegas!</p>
+    <a href="cadastro.html"><button class="neon-button">Começar Agora</button></a>
+  </section>
+
+  <section class="glass-container">
+    <div class="card">
+      <h3>🚀 Emergência Acadêmica?</h3>
+      <p>Esqueceu o TCC em casa? Um runner busca e entrega rapidinho onde você estiver.</p>
+    </div>
+    <div class="card">
+      <h3>🤝 Ajuda de Colegas</h3>
+      <p>Peça ou empreste itens com segurança. Ganha quem ajuda e quem recebe!</p>
+    </div>
+    <div class="card">
+        <h3>🌱 Energia Compartilhada</h3>
+        <p>Alugue powerbanks da comunidade e mantenha seus devices sempre vivos.</p>
+    </div>
+    <div class="card">
+        <h3>💡 Impressão Verde</h3>
+        <p>Envie arquivos e receba material impresso com papel reciclado dos pontos StudyPrint.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 IFExpress — Por estudantes, para estudantes. #CorujaExpress 🦉
+  </footer>
+</body>
+</html>
