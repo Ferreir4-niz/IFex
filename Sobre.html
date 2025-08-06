@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre o App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f9ff;
+      color: #1f2f46;
+    }
+
+    header {
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 72px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1f4037;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #04c51ee1;
+    }
+
+    .neon-button {
+      background: #8ee920;
+      color: #1f2f46;
+      padding: 0.6rem 1.4rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 0 12px #8ee920;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    .neon-button:hover {
+      background: #1f2f46;
+      color: #8ee920;
+      box-shadow: 0 0 18px #1f2f46;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #1f4037, #a8e063);
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
+    }
+
+    .Texto {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 5rem;
+      color: #1f2f46;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .Texto h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #1caf0f;
+    }
+
+    .Texto p {
+      font-size: 1.05rem;
+      line-height: 1.8rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #1f2f46;
+      background: #e8fbf1;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="IFex.png" alt="StudyHub Logo">
+    <nav>
+      <a href="IFex.html">Início</a>
+      <a href="Sobre.html">Sobre o App</a>
+      <a href="Function.html">Como Funciona</a>
+      <a href="KitRunner.html">Kit Runner</a>
+      <a href="Ajuda.html">Ajuda</a>
+      <a href="Pedido.html"><button class="neon-button">+ Criar Pedido</button></a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Sobre o StudyHub Express</h1>
+    <p>Conheça a origem e os fundamentos por trás do app que está revolucionando a vida dos estudantes!</p>
+  </section>
+
+  <div class="Texto">
+    <h2>Informações Institucionais</h2>
+    <p>
+      O <strong>IFExpress</strong> é um aplicativo inovador concebido
+       com o propósito de atender às necessidades emergenciais e logísticas
+        da comunidade estudantil do IFRN. Fundado em <strong>julho de 2025</strong>, o projeto 
+        nasceu da visão colaborativa de <strong>Geyza Gonçalves, Bianca Pereira, 
+            Flávia Móises</strong> e <strong>Nícolas Avelino</strong>, estudantes do campus Parnamirim,
+            comprometidos com o avanço da educação por meio da tecnologia.
+      <br><br>
+      O IFExpress se destaca por sua proposta única e acessível, priorizando
+       soluções práticas, acessibilidade e fortalecimento da rede de apoio entre alunos.
+        A plataforma reflete os valores de empatia, inovação e sustentabilidade, colocando 
+        os estudantes no centro de uma comunidade ativa, interligada e funcional.
+      <br><br>
+      Idealizado para ser mais que uma ferramenta digital, o StudyHub Express representa 
+      um movimento estudantil inteligente — comprometido com o tempo, a urgência e 
+      a realidade daqueles que enfrentam os desafios do ensino médio, técnico e superior.
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 IFExpress — Por estudantes, para estudantes. #CorujaExpress 🦉
+  </footer>
+</body>
+
+</html>

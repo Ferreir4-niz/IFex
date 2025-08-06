@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro - StudyHub Express</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #1f4037, #a8e063);
+      color: #1f2f46;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+      padding: 2rem;
+    }
+    .form-container, .avaliacao-container {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      z-index: 1;
+      display: none;
+    }
+    .form-container.active, .avaliacao-container.active {
+      display: block;
+    }
+    .form-container h2, .avaliacao-container h2 {
+      margin-bottom: 1.5rem;
+      color: #1f4037;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      text-align: left;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background: #a8e063;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      color: #1f2f46;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+    button:hover {
+      background: #1f4037;
+      color: white;
+    }
+    .voltar {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      color: #1f4037;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .voltar:hover {
+      text-decoration: underline;
+    }
+    #mensagem-cadastro {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #00ffab;
+      color: #1f2f46;
+      padding: 2rem;
+      border-radius: 16px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: none;
+      animation: fadeIn 0.8s ease-in-out;
+      z-index: 10;
+      text-align: center;
+      max-width: 90%;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to   { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    /* Estilos adicionais para avaliação */
+    .avaliacao-container label {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="mensagem-cadastro"></div>
+
+  <!-- Formulário de Cadastro -->
+  <div class="form-container active" id="form-cadastro-container">
+    <h2>Crie sua conta</h2>
+    <form id="form-cadastro" method="POST">
+      <label for="nome">Nome Completo</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="email">E-mail Institucional</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" required />
+
+      <label for="curso">Curso</label>
+      <input type="text" id="curso" name="curso" required />
+
+      <label for="instituicao">Instituição</label>
+      <select id="instituicao" name="instituicao" required>
+        <option value="">Selecione sua unidade</option>
+        <option value="Apodi">Apodi</option>
+        <option value="Caicó">Caicó</option>
+        <option value="Canguaretama">Canguaretama</option>
+        <option value="Ceará-Mirim">Ceará-Mirim</option>
+        <option value="Currais Novos">Currais Novos</option>
+        <option value="Ipanguaçu">Ipanguaçu</option>
+        <option value="João Câmara">João Câmara</option>
+        <option value="Jucurutu">Jucurutu</option>
+        <option value="Lajes">Lajes</option>
+        <option value="Macau">Macau</option>
+        <option value="Mossoró">Mossoró</option>
+        <option value="Natal-Central">Natal-Central</option>
+        <option value="Natal-Cidade Alta">Natal-Cidade Alta (inclui as unidades Rocas e Rio Branco)</option>
+        <option value="Natal-Zona Leste">Natal-Zona Leste</option>
+        <option value="Natal-Zona Norte">Natal-Zona Norte</option>
+        <option value="Nova Cruz">Nova Cruz</option>
+        <option value="Parelhas">Parelhas</option>
+        <option value="Parnamirim">Parnamirim</option>
+        <option value="Pau dos Ferros">Pau dos Ferros</option>
+        <option value="Santa Cruz">Santa Cruz</option>
+        <option value="São Gonçalo do Amarante">São Gonçalo do Amarante</option>
+        <option value="São Paulo do Potengi">São Paulo do Potengi</option>
+      </select>
+
+      <label for="tipo">Quero me cadastrar como:</label>
+      <select id="tipo" name="tipo">
+        <option value="estudante">Estudante</option>
+        <option value="runner">Study Runner</option>
+      </select>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <a class="voltar" href="IFex.html">&larr; Voltar para a Home</a>
+  </div>
+
+  <!-- Modal Avaliação Runner -->
+  <div class="avaliacao-container" id="avaliacao-runner-container">
+    <h2>Avaliação para Study Runner</h2>
+    <form id="form-avaliacao">
+      <p>Por favor, responda as perguntas abaixo para avaliarmos seu perfil como Runner:</p>
+
+      <label for="experiencia">1. Você já teve experiência ajudando colegas com tarefas acadêmicas? (Sim/Não)</label>
+      <select id="experiencia" name="experiencia" required>
+        <option value="" disabled selected>Selecione</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+
+      <label for="disponibilidade">2. Quantas horas por dia, em média, você pode se dedicar como Runner?</label>
+      <input type="number" id="disponibilidade" name="disponibilidade" min="0" max="24" placeholder="Ex: 2" required />
+
+      <label for="responsabilidade">3. Como você avaliaria sua responsabilidade e comprometimento? (1 - Baixo a 5 - Alto)</label>
+      <select id="responsabilidade" name="responsabilidade" required>
+        <option value="" disabled selected>Selecione</option>
+        <option value="1">1 - Baixo</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Alto</option>
+      </select>
+
+      <label for="comentarios">4. Comentários adicionais (opcional)</label>
+      <textarea id="comentarios" name="comentarios" rows="3" placeholder="Diga algo sobre você"></textarea>
+
+      <button type="submit">Enviar Avaliação</button>
+      <button type="button" id="cancelar-avaliacao" style="margin-top: 0.5rem; background:#ff4c4c; color:white;">Cancelar Avaliação</button>
+    </form>
+  </div>
+
+  <script>
+    const formCadastro = document.getElementById('form-cadastro');
+    const containerCadastro = document.getElementById('form-cadastro-container');
+    const containerAvaliacao = document.getElementById('avaliacao-runner-container');
+    const mensagemCadastro = document.getElementById('mensagem-cadastro');
+    const formAvaliacao = document.getElementById('form-avaliacao');
+    const btnCancelarAvaliacao = document.getElementById('cancelar-avaliacao');
+
+    // Função para mostrar mensagem de sucesso e redirecionar
+    function mostrarMensagemSucesso() {
+      mensagemCadastro.innerHTML = '<strong>Usuário cadastrado com sucesso!</strong><br>Redirecionando para a página inicial...';
+      mensagemCadastro.style.display = 'block';
+
+      setTimeout(() => {
+        mensagemCadastro.style.display = 'none';
+        window.location.href = 'IFex.html';
+      }, 3000);
+    }
+
+    // Evento submit do cadastro
+    formCadastro.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const tipo = document.getElementById('tipo').value;
+
+      if (tipo === 'runner') {
+        // Esconde formulário de cadastro
+        containerCadastro.classList.remove('active');
+
+        // Mostra avaliação
+        containerAvaliacao.classList.add('active');
+      } else {
+        // Cadastro direto para estudante
+        mostrarMensagemSucesso();
+        formCadastro.reset();
+      }
+    });
+
+    // Evento submit da avaliação runner
+    formAvaliacao.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Aqui você pode fazer validações extras, enviar dados para servidor, etc.
+
+      // Após avaliação, mostrar mensagem de sucesso
+      containerAvaliacao.classList.remove('active');
+      mostrarMensagemSucesso();
+
+      // Resetar os formulários
+      formCadastro.reset();
+      formAvaliacao.reset();
+    });
+
+    // Cancelar avaliação volta para o formulário de cadastro
+    btnCancelarAvaliacao.addEventListener('click', () => {
+      containerAvaliacao.classList.remove('active');
+      containerCadastro.classList.add('active');
+    });
+  </script>
+</body>
+</html>

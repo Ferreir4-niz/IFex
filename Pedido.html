@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fazer Pedido - StudyHub Express</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f9ff;
+      color: #1f2f46;
+    }
+
+    header {
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 72px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1f4037;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #04c51ee1;
+    }
+
+    .neon-button {
+      background: #8ee920;
+      color: #1f2f46;
+      padding: 0.6rem 1.4rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 0 12px #8ee920;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    .neon-button:hover {
+      background: #1f2f46;
+      color: #8ee920;
+      box-shadow: 0 0 18px #1f2f46;
+    }
+
+    .hero {
+      padding: 3rem 2rem 2rem;
+      background: linear-gradient(135deg, #1f4037, #a8e063);
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .container {
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+      padding: 2rem;
+      transition: transform 0.3s ease;
+      border-top: 5px solid #8ee920;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card h3 {
+      margin-bottom: 0.8rem;
+      color: #1caf0f;
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6rem;
+    }
+
+    .card ul {
+      margin-top: 1rem;
+      padding-left: 1.2rem;
+      color: #444;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #1f2f46;
+      background: #e8fbf1;
+    }
+
+    /* Modal/Seção de pedido */
+    .pedido-especificacao {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(31, 47, 70, 0.9);
+      color: white;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .pedido-especificacao.active {
+      display: flex;
+    }
+
+    .pedido-content {
+      background: #1f2f46;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 25px #8ee920aa;
+    }
+
+    .pedido-content h2 {
+      margin-bottom: 1rem;
+      color: #8ee920;
+    }
+
+    .pedido-content p {
+      margin-bottom: 1.5rem;
+      line-height: 1.5rem;
+    }
+
+    .pedido-content label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    .pedido-content input,
+    .pedido-content textarea,
+    .pedido-content select {
+      width: 100%;
+      margin-top: 0.3rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .pedido-content textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .btns {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btns button {
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-submit {
+      background: #8ee920;
+      color: #1f2f46;
+      box-shadow: 0 0 12px #8ee920;
+    }
+
+    .btn-submit:hover {
+      background: #1f2f46;
+      color: #8ee920;
+      box-shadow: 0 0 18px #1f2f46;
+    }
+
+    .btn-close {
+      background: #ff4c4c;
+      color: white;
+    }
+
+    .btn-close:hover {
+      background: #e03b3b;
+    }
+
+    .mensagem-sucesso {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: #8ee920;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="IFex.png" alt="StudyHub Logo" />
+    <nav>
+      <a href="IFex.html">Início</a>
+      <a href="Sobre.html">Sobre o App</a>
+      <a href="Function.html">Como Funciona</a>
+      <a href="KitRunner.html">Kit Runner</a>
+      <a href="Ajuda.html">Ajuda</a>
+      <button class="neon-button">+ Criar Pedido</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Escolha seu tipo de pedido</h1>
+    <p>Explore abaixo as modalidades disponíveis e selecione aquela que melhor se adapta à sua necessidade acadêmica!</p>
+  </section>
+
+  <section class="container" id="cards-container">
+    <div class="card" data-pedido="buscar">
+      <h3>📦 Buscar algo esquecido</h3>
+      <p>Deixou um item importante em casa ou na biblioteca? Um Runner pode buscar por você!</p>
+      <ul>
+        <li>Documentos, apostilas, pendrives</li>
+        <li>Equipamentos e materiais de aula</li>
+        <li>Localização e tempo de entrega em tempo real</li>
+      </ul>
+    </div>
+
+    <div class="card" data-pedido="emprestimo">
+      <h3>📚 Empréstimo de itens</h3>
+      <p>Precisa de um carregador, livro ou calculadora emprestada?</p>
+      <ul>
+        <li>Solicite materiais de outros alunos da rede</li>
+        <li>Recompensas simbólicas por solidariedade</li>
+        <li>Ideal para imprevistos de última hora</li>
+      </ul>
+    </div>
+
+    <div class="card" data-pedido="impressao">
+      <h3>🖨️ Impressão & Encadernação</h3>
+      <p>Envie seu arquivo e receba impresso no campus ou em casa.</p>
+      <ul>
+        <li>Serviço sustentável com papel reciclado</li>
+        <li>Impressões coloridas ou PB</li>
+        <li>Opção de encadernação rápida</li>
+      </ul>
+    </div>
+
+    <div class="card" data-pedido="comprar">
+      <h3>🛒 Comprar novos materiais</h3>
+      <p>Precisa comprar algo urgente como caneta, marca-texto ou papel?</p>
+      <ul>
+        <li>Compra em papelarias próximas</li>
+        <li>Runner entrega diretamente a você</li>
+        <li>Pagamento transparente via aplicativo</li>
+      </ul>
+    </div>
+
+    <div class="card" data-pedido="powerbank">
+      <h3>🔌 Emprestar power bank</h3>
+      <p>Celular descarregando e nenhuma tomada por perto? Peça um carregador comunitário.</p>
+      <ul>
+        <li>Rápido empréstimo por tempo limitado</li>
+        <li>Retorno simples nos pontos de coleta</li>
+        <li>Ideal para emergências durante provas ou aulas</li>
+      </ul>
+    </div>
+
+    <div class="card" data-pedido="grupos">
+      <h3>🎓 Grupos & Missões Coletivas</h3>
+      <p>Divida a corrida com colegas para reduzir custos e otimizar entregas!</p>
+      <ul>
+        <li>Ideal para salas com muitas demandas</li>
+        <li>Agendamento conjunto de serviços</li>
+        <li>Mais barato e prático para todos</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Seção Modal para Especificação -->
+  <section class="pedido-especificacao" id="pedido-especificacao">
+    <div class="pedido-content">
+      <h2 id="pedido-title">Título do Pedido</h2>
+      <p id="pedido-desc">Descrição do pedido selecionado aparecerá aqui.</p>
+
+      <form id="pedido-form">
+        <!-- Campos dinâmicos vão aqui -->
+
+        <div class="btns">
+          <button class="btn-submit" type="submit">Enviar Pedido</button>
+        </div>
+      </form>
+
+      <div class="btns" style="margin-top: 1rem;">
+        <button class="btn-close" type="button" id="close-pedido">Cancelar</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 IFExpress — Por estudantes, para estudantes. #CorujaExpress 🦉
+  </footer>
+
+  <script>
+    const pedidosInfo = {
+      buscar: {
+        title: "📦 Buscar algo esquecido",
+        desc: "Deixe seu pedido para que um Runner busque o item que você esqueceu.",
+        fields: [
+          { label: "Descrição do item", type: "textarea", name: "descricaoItem", placeholder: "Ex: Apostila de matemática, pendrive..." },
+          { label: "Local para buscar", type: "text", name: "local", placeholder: "Ex: Biblioteca Central" },
+          { label: "Data e hora para entrega", type: "datetime-local", name: "dataHora" },
+          { label: "Observações adicionais", type: "textarea", name: "observacoes", placeholder: "Informações extras (opcional)" }
+        ]
+      },
+      emprestimo: {
+        title: "📚 Empréstimo de itens",
+        desc: "Solicite materiais emprestados de outros alunos da rede.",
+        fields: [
+          { label: "Item desejado", type: "text", name: "item" },
+          { label: "Prazo do empréstimo", type: "date", name: "prazo" },
+          { label: "Justificativa", type: "textarea", name: "justificativa", placeholder: "Por que precisa do empréstimo?" }
+        ]
+      },
+      impressao: {
+        title: "🖨️ Impressão & Encadernação",
+        desc: "Envie seu arquivo e escolha as opções para impressão.",
+        fields: [
+          { label: "Arquivo (link ou upload)", type: "text", name: "arquivo", placeholder: "Coloque o link do arquivo" },
+          {
+            label: "Tipo de impressão",
+            type: "select",
+            name: "tipoImpressao",
+            options: ["Preto e Branco", "Colorida"]
+          },
+          {
+            label: "Encadernação",
+            type: "select",
+            name: "encadernacao",
+            options: ["Nenhuma", "Capa dura", "Capa simples"]
+          },
+          { label: "Quantidade de páginas", type: "number", name: "paginas", placeholder: "Número de páginas" }
+        ]
+      },
+      comprar: {
+        title: "🛒 Comprar novos materiais",
+        desc: "Peça para comprar materiais urgentes em papelarias próximas.",
+        fields: [
+          { label: "Item(s) a comprar", type: "textarea", name: "itens" },
+          { label: "Quantidade", type: "number", name: "quantidade", min: 1, value: 1 },
+          { label: "Local de entrega", type: "text", name: "localEntrega" }
+        ]
+      },
+      powerbank: {
+        title: "🔌 Emprestar power bank",
+        desc: "Peça um carregador comunitário para emergência.",
+        fields: [
+          { label: "Motivo do empréstimo", type: "textarea", name: "motivo", placeholder: "Ex: Aula longa, prova..." },
+          { label: "Tempo estimado de uso (horas)", type: "number", name: "tempoUso", min: 1 }
+        ]
+      },
+      grupos: {
+        title: "🎓 Grupos & Missões Coletivas",
+        desc: "Organize um pedido em grupo para reduzir custos.",
+        fields: [
+          { label: "Número de participantes", type: "number", name: "participantes", min: 1 },
+          { label: "Descrição do pedido coletivo", type: "textarea", name: "descricaoColetiva" },
+          { label: "Data prevista para o pedido", type: "date", name: "dataPrevista" }
+        ]
+      }
+    };
+
+    const cards = document.querySelectorAll(".card");
+    const modal = document.getElementById("pedido-especificacao");
+    const titleEl = document.getElementById("pedido-title");
+    const descEl = document.getElementById("pedido-desc");
+    const form = document.getElementById("pedido-form");
+    const btnClose = document.getElementById("close-pedido");
+    const btnSubmit = form.querySelector(".btn-submit");
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        const pedidoKey = card.getAttribute("data-pedido");
+        openPedidoModal(pedidoKey);
+      });
+    });
+
+    btnClose.addEventListener("click", closePedidoModal);
+
+    function openPedidoModal(key) {
+      const pedido = pedidosInfo[key];
+      if (!pedido) return;
+
+      titleEl.textContent = pedido.title;
+      descEl.textContent = pedido.desc;
+
+      // Limpa o form
+      form.innerHTML = "";
+
+      // Cria os campos dinâmicos
+      pedido.fields.forEach(field => {
+        const label = document.createElement("label");
+        label.textContent = field.label;
+        label.htmlFor = field.name;
+
+        let input;
+        if (field.type === "textarea") {
+          input = document.createElement("textarea");
+          input.rows = 3;
+        } else if (field.type === "select") {
+          input = document.createElement("select");
+          field.options.forEach(opt => {
+            const option = document.createElement("option");
+            option.value = opt;
+            option.textContent = opt;
+            input.appendChild(option);
+          });
+        } else {
+          input = document.createElement("input");
+          input.type = field.type;
+          if (field.min !== undefined) input.min = field.min;
+          if (field.value !== undefined) input.value = field.value;
+        }
+        input.id = field.name;
+        input.name = field.name;
+        if (field.placeholder) input.placeholder = field.placeholder;
+
+        form.appendChild(label);
+        form.appendChild(input);
+      });
+
+      // Cria a div para o botão submit e adiciona dentro do form
+      const btnsDiv = document.createElement("div");
+      btnsDiv.classList.add("btns");
+      btnsDiv.appendChild(btnSubmit);
+      form.appendChild(btnsDiv);
+
+      // Reset texto e comportamento do botão cancelar
+      btnClose.textContent = "Cancelar";
+      btnClose.onclick = () => closePedidoModal();
+
+      // Remove mensagem de sucesso se existir
+      const oldMessage = form.parentElement.querySelector(".mensagem-sucesso");
+      if (oldMessage) oldMessage.remove();
+
+      form.style.display = "block";
+      btnSubmit.style.display = "inline-block";
+
+      modal.classList.add("active");
+    }
+
+    function closePedidoModal() {
+      modal.classList.remove("active");
+      form.reset();
+
+      // Remove mensagem de sucesso
+      const oldMessage = form.parentElement.querySelector(".mensagem-sucesso");
+      if (oldMessage) oldMessage.remove();
+
+      form.style.display = "block";
+      btnSubmit.style.display = "inline-block";
+
+      btnClose.textContent = "Cancelar";
+      btnClose.onclick = () => closePedidoModal();
+    }
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+
+      // Esconde o formulário
+      form.style.display = "none";
+
+      // Cria mensagem de sucesso
+      const mensagemSucesso = document.createElement("p");
+      mensagemSucesso.classList.add("mensagem-sucesso");
+      mensagemSucesso.textContent = "Pedido feito com sucesso!✅ Um de nossos heróis já deve estar indo te ajudar. Muito obrigado por usar o IFExpress.";
+      mensagemSucesso.style.marginTop = "1.5rem";
+      mensagemSucesso.style.fontSize = "1.1rem";
+      mensagemSucesso.style.color = "#8ee920";
+
+      // Adiciona mensagem após o form
+      form.parentElement.appendChild(mensagemSucesso);
+
+      // Esconde botão submit
+      btnSubmit.style.display = "none";
+
+      // Altera botão cancelar para fechar
+      btnClose.textContent = "Fechar";
+
+      btnClose.onclick = () => {
+        mensagemSucesso.remove();
+        form.style.display = "block";
+        btnSubmit.style.display = "inline-block";
+        btnClose.textContent = "Cancelar";
+        closePedidoModal();
+
+        btnClose.onclick = () => closePedidoModal();
+      };
+    });
+  </script>
+</body>
+
+</html>
