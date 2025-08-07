@@ -717,7 +717,7 @@
     };
 
     // Dados fictícios de pedidos
-    const pedidosFicticios = [
+    let pedidosFicticios = [
       {
         id: 1,
         tipo: "buscar",
@@ -787,10 +787,14 @@
     const btnSubmit = form.querySelector(".btn-submit");
     const pedidosList = document.getElementById("pedidos-list");
 
+    // Variável para armazenar o tipo de pedido atual
+    let currentPedidoType = "";
+
     // Event Listeners
     cards.forEach(card => {
       card.addEventListener("click", () => {
         const pedidoKey = card.getAttribute("data-pedido");
+        currentPedidoType = pedidoKey;
         openPedidoModal(pedidoKey);
       });
     });
@@ -895,6 +899,9 @@
         grupos: "🎓"
       };
 
+      // Ordena pedidos por data (mais recentes primeiro)
+      pedidosFicticios.sort((a, b) => new Date(b.data) - new Date(a.data));
+
       pedidosFicticios.forEach(pedido => {
         const item = document.createElement("div");
         item.className = "pedido-item";
@@ -921,6 +928,33 @@
     function handleFormSubmit(e) {
       e.preventDefault();
 
+      // Obtém os dados do formulário
+      const formData = new FormData(form);
+      const formValues = {};
+      formData.forEach((value, key) => {
+        formValues[key] = value;
+      });
+
+      // Cria um novo pedido
+      const now = new Date();
+      const formattedDate = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
+      
+      const runners = ["Ana Silva", "Carlos Oliveira", "Mariana Santos", "João Pereira", "Pedro Henrique", "Luiza Fernandes"];
+      const randomRunner = runners[Math.floor(Math.random() * runners.length)];
+      
+      const newPedido = {
+        id: pedidosFicticios.length + 1,
+        tipo: currentPedidoType,
+        titulo: `Novo pedido de ${pedidosInfo[currentPedidoType].title}`,
+        descricao: Object.values(formValues).join(" | "),
+        data: formattedDate,
+        status: "andamento",
+        runner: randomRunner
+      };
+
+      // Adiciona o novo pedido ao array
+      pedidosFicticios.unshift(newPedido);
+
       // Esconde o formulário
       form.style.display = "none";
 
@@ -934,7 +968,15 @@
 
       // Esconde botão submit
       btnSubmit.style.display = "none";
+
+      // Atualiza a central de pedidos se estiver aberta
+      if (modalCentral.classList.contains("active")) {
+        renderPedidos();
+      }
     }
+
+    // Renderiza os pedidos fictícios inicialmente
+    renderPedidos();
   </script>
 </body>
 </html>
