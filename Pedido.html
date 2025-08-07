@@ -201,6 +201,7 @@
       margin-top: 2rem;
       display: flex;
       justify-content: space-between;
+      gap: 1rem;
     }
 
     .btns button {
@@ -210,6 +211,7 @@
       border: none;
       cursor: pointer;
       transition: background-color 0.2s ease;
+      flex: 1;
     }
 
     .btn-submit {
@@ -233,11 +235,295 @@
       background: #e03b3b;
     }
 
+    .btn-central {
+      background: #1f2f46;
+      color: #8ee920;
+      border: 2px solid #8ee920;
+      box-shadow: 0 0 10px rgba(142, 233, 32, 0.5);
+    }
+
+    .btn-central:hover {
+      background: #8ee920;
+      color: #1f2f46;
+    }
+
     .mensagem-sucesso {
       margin-top: 1.5rem;
       font-size: 1.1rem;
       color: #8ee920;
       text-align: center;
+    }
+
+    /* Central de Pedidos */
+    .central-pedidos {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(31, 47, 70, 0.95);
+      color: white;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    .central-pedidos.active {
+      display: flex;
+    }
+
+    .central-content {
+      background: #1f2f46;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 0 25px #8ee920aa;
+    }
+
+    .central-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #8ee920;
+    }
+
+    .central-header h2 {
+      color: #8ee920;
+      font-size: 1.8rem;
+    }
+
+    .pedidos-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-height: 60vh;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .pedido-item {
+      background: rgba(142, 233, 32, 0.1);
+      border-left: 4px solid #8ee920;
+      padding: 1.2rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .pedido-item:hover {
+      transform: translateX(5px);
+      background: rgba(142, 233, 32, 0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .pedido-item h3 {
+      color: #8ee920;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pedido-item .status {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+
+    .status.andamento {
+      background: rgba(255, 193, 7, 0.2);
+      color: #ffc107;
+    }
+
+    .status.concluido {
+      background: rgba(40, 167, 69, 0.2);
+      color: #28a745;
+    }
+
+    .status.cancelado {
+      background: rgba(220, 53, 69, 0.2);
+      color: #dc3545;
+    }
+
+    .pedido-item p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    .pedido-item .details {
+      font-size: 0.85rem;
+      color: #aaa;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      color: #8ee920;
+      font-size: 1.1rem;
+    }
+
+    /* Media Queries para Responsividade */
+    @media (max-width: 1024px) {
+      .container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .container {
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+      }
+
+      .card {
+        padding: 1.5rem;
+      }
+
+      .pedido-content, .central-content {
+        padding: 1.5rem;
+      }
+      
+      .central-header h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+
+      .neon-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .card h3 {
+        font-size: 1.2rem;
+      }
+
+      .pedido-especificacao, .central-pedidos {
+        padding: 1rem;
+      }
+
+      .pedido-content, .central-content {
+        padding: 1rem;
+      }
+
+      .btns {
+        flex-direction: column;
+      }
+
+      .btns button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header img {
+        height: 60px;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .card {
+        padding: 1.2rem;
+      }
+
+      .card h3 {
+        font-size: 1.1rem;
+      }
+
+      .card p,
+      .card ul {
+        font-size: 0.9rem;
+      }
+
+      footer {
+        padding: 1.5rem;
+        font-size: 0.8rem;
+      }
+      
+      .pedido-item h3 {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .status {
+        margin-top: 0.3rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      nav {
+        gap: 0.8rem;
+      }
+
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+
+      .container {
+        padding: 1.5rem 0.8rem;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
@@ -322,7 +608,7 @@
     </div>
   </section>
 
-  <!-- Seção Modal para Especificação -->
+  <!-- Modal para Especificação de Pedido -->
   <section class="pedido-especificacao" id="pedido-especificacao">
     <div class="pedido-content">
       <h2 id="pedido-title">Título do Pedido</h2>
@@ -337,7 +623,22 @@
       </form>
 
       <div class="btns" style="margin-top: 1rem;">
-        <button class="btn-close" type="button" id="close-pedido">Cancelar</button>
+        <button class="btn-central" id="open-central">Central de Pedidos</button>
+        <button class="btn-close" id="close-pedido">Cancelar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal para Central de Pedidos -->
+  <section class="central-pedidos" id="central-pedidos">
+    <div class="central-content">
+      <div class="central-header">
+        <h2>📋 Central de Pedidos</h2>
+        <button class="btn-close" id="close-central">Fechar</button>
+      </div>
+
+      <div class="pedidos-container" id="pedidos-list">
+        <!-- Pedidos serão inseridos dinamicamente aqui -->
       </div>
     </div>
   </section>
@@ -415,14 +716,78 @@
       }
     };
 
+    // Dados fictícios de pedidos
+    const pedidosFicticios = [
+      {
+        id: 1,
+        tipo: "buscar",
+        titulo: "Buscar apostila de Cálculo",
+        descricao: "Apostila deixada na biblioteca central, capa azul, página 50 marcada com post-it",
+        data: "15/08/2025 09:30",
+        status: "concluido",
+        runner: "Ana Silva"
+      },
+      {
+        id: 2,
+        tipo: "emprestimo",
+        titulo: "Empréstimo de calculadora científica",
+        descricao: "Preciso para prova de Física às 14h, devolução até amanhã",
+        data: "16/08/2025 11:15",
+        status: "andamento",
+        runner: "Carlos Oliveira"
+      },
+      {
+        id: 3,
+        tipo: "impressao",
+        titulo: "Impressão trabalho de História",
+        descricao: "Trabalho sobre Revolução Industrial, 20 páginas, frente e verso, encadernação simples",
+        data: "14/08/2025 16:45",
+        status: "concluido",
+        runner: "Mariana Santos"
+      },
+      {
+        id: 4,
+        tipo: "comprar",
+        titulo: "Compra de materiais de escritório",
+        descricao: "2 canetas esferográficas azuis, 1 marca-texto amarelo fosforescente",
+        data: "17/08/2025 10:00",
+        status: "andamento",
+        runner: "João Pereira"
+      },
+      {
+        id: 5,
+        tipo: "powerbank",
+        titulo: "Empréstimo de power bank 10000mAh",
+        descricao: "Para uso durante aula noturna das 19h às 22h",
+        data: "15/08/2025 18:30",
+        status: "cancelado",
+        runner: "-"
+      },
+      {
+        id: 6,
+        tipo: "grupos",
+        titulo: "Compra coletiva de livros",
+        descricao: "Grupo de 5 alunos precisa comprar o livro 'Introdução à Programação'",
+        data: "18/08/2025 08:00",
+        status: "andamento",
+        runner: "Pedro Henrique"
+      }
+    ];
+
+    // Elementos do DOM
     const cards = document.querySelectorAll(".card");
-    const modal = document.getElementById("pedido-especificacao");
+    const modalPedido = document.getElementById("pedido-especificacao");
+    const modalCentral = document.getElementById("central-pedidos");
     const titleEl = document.getElementById("pedido-title");
     const descEl = document.getElementById("pedido-desc");
     const form = document.getElementById("pedido-form");
-    const btnClose = document.getElementById("close-pedido");
+    const btnClosePedido = document.getElementById("close-pedido");
+    const btnOpenCentral = document.getElementById("open-central");
+    const btnCloseCentral = document.getElementById("close-central");
     const btnSubmit = form.querySelector(".btn-submit");
+    const pedidosList = document.getElementById("pedidos-list");
 
+    // Event Listeners
     cards.forEach(card => {
       card.addEventListener("click", () => {
         const pedidoKey = card.getAttribute("data-pedido");
@@ -430,8 +795,13 @@
       });
     });
 
-    btnClose.addEventListener("click", closePedidoModal);
+    btnClosePedido.addEventListener("click", closePedidoModal);
+    btnOpenCentral.addEventListener("click", openCentralPedidos);
+    btnCloseCentral.addEventListener("click", closeCentralPedidos);
 
+    form.addEventListener("submit", handleFormSubmit);
+
+    // Funções
     function openPedidoModal(key) {
       const pedido = pedidosInfo[key];
       if (!pedido) return;
@@ -480,10 +850,6 @@
       btnsDiv.appendChild(btnSubmit);
       form.appendChild(btnsDiv);
 
-      // Reset texto e comportamento do botão cancelar
-      btnClose.textContent = "Cancelar";
-      btnClose.onclick = () => closePedidoModal();
-
       // Remove mensagem de sucesso se existir
       const oldMessage = form.parentElement.querySelector(".mensagem-sucesso");
       if (oldMessage) oldMessage.remove();
@@ -491,25 +857,68 @@
       form.style.display = "block";
       btnSubmit.style.display = "inline-block";
 
-      modal.classList.add("active");
+      modalPedido.classList.add("active");
     }
 
     function closePedidoModal() {
-      modal.classList.remove("active");
+      modalPedido.classList.remove("active");
       form.reset();
-
-      // Remove mensagem de sucesso
-      const oldMessage = form.parentElement.querySelector(".mensagem-sucesso");
-      if (oldMessage) oldMessage.remove();
-
       form.style.display = "block";
       btnSubmit.style.display = "inline-block";
-
-      btnClose.textContent = "Cancelar";
-      btnClose.onclick = () => closePedidoModal();
     }
 
-    form.addEventListener("submit", e => {
+    function openCentralPedidos() {
+      closePedidoModal();
+      modalCentral.classList.add("active");
+      renderPedidos();
+    }
+
+    function closeCentralPedidos() {
+      modalCentral.classList.remove("active");
+    }
+
+    function renderPedidos() {
+      pedidosList.innerHTML = "";
+
+      if (pedidosFicticios.length === 0) {
+        pedidosList.innerHTML = '<div class="empty-state">Nenhum pedido encontrado</div>';
+        return;
+      }
+
+      // Ícones para cada tipo de pedido
+      const icons = {
+        buscar: "📦",
+        emprestimo: "📚",
+        impressao: "🖨️",
+        comprar: "🛒",
+        powerbank: "🔌",
+        grupos: "🎓"
+      };
+
+      pedidosFicticios.forEach(pedido => {
+        const item = document.createElement("div");
+        item.className = "pedido-item";
+        
+        item.innerHTML = `
+          <h3>
+            ${icons[pedido.tipo] || "📋"} ${pedido.titulo}
+            <span class="status ${pedido.status}">
+              ${pedido.status === "andamento" ? "Em andamento" : 
+               pedido.status === "concluido" ? "Concluído" : "Cancelado"}
+            </span>
+          </h3>
+          <p>${pedido.descricao}</p>
+          <div class="details">
+            <span>Solicitado em: ${pedido.data}</span>
+            <span>Runner: ${pedido.runner}</span>
+          </div>
+        `;
+
+        pedidosList.appendChild(item);
+      });
+    }
+
+    function handleFormSubmit(e) {
       e.preventDefault();
 
       // Esconde o formulário
@@ -519,30 +928,13 @@
       const mensagemSucesso = document.createElement("p");
       mensagemSucesso.classList.add("mensagem-sucesso");
       mensagemSucesso.textContent = "Pedido feito com sucesso!✅ Um de nossos heróis já deve estar indo te ajudar. Muito obrigado por usar o IFExpress.";
-      mensagemSucesso.style.marginTop = "1.5rem";
-      mensagemSucesso.style.fontSize = "1.1rem";
-      mensagemSucesso.style.color = "#8ee920";
-
+      
       // Adiciona mensagem após o form
       form.parentElement.appendChild(mensagemSucesso);
 
       // Esconde botão submit
       btnSubmit.style.display = "none";
-
-      // Altera botão cancelar para fechar
-      btnClose.textContent = "Fechar";
-
-      btnClose.onclick = () => {
-        mensagemSucesso.remove();
-        form.style.display = "block";
-        btnSubmit.style.display = "inline-block";
-        btnClose.textContent = "Cancelar";
-        closePedidoModal();
-
-        btnClose.onclick = () => closePedidoModal();
-      };
-    });
+    }
   </script>
 </body>
-
 </html>
