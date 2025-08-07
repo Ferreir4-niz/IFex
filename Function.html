@@ -2,209 +2,240 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Como Funciona</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como Funciona</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        body {
-            background: #f4f9ff;
-            color: #1f2f46;
-        }
+    body {
+      background: #f4f9ff;
+      color: #1f2f46;
+    }
 
-        header {
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 2rem;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-        }
+    header {
+      background: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    }
 
-        header img {
-            height: 72px;
-        }
+    header img {
+      height: 64px;
+      margin-bottom: 0.5rem;
+    }
 
-        nav {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
+    nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #1f4037;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
+    nav a {
+      text-decoration: none;
+      color: #1f4037;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
 
-        nav a:hover {
-            color: #04c51ee1;
-        }
+    nav a:hover {
+      color: #04c51ee1;
+    }
 
-        .neon-button {
-            background: #8ee920;
-            color: #1f2f46;
-            padding: 0.6rem 1.4rem;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            box-shadow: 0 0 12px #8ee920;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-        }
+    .neon-button {
+      background: #8ee920;
+      color: #1f2f46;
+      padding: 0.6rem 1.4rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 0 12px #8ee920;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
 
-        .neon-button:hover {
-            background: #1f2f46;
-            color: #8ee920;
-            box-shadow: 0 0 18px #1f2f46;
-        }
+    .neon-button:hover {
+      background: #1f2f46;
+      color: #8ee920;
+      box-shadow: 0 0 18px #1f2f46;
+    }
 
-        .hero {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #1f4037, #a8e063);
-            color: white;
-            text-align: center;
-        }
+    .hero {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #1f4037, #a8e063);
+      color: white;
+      text-align: center;
+    }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.95;
-        }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
+      padding: 0 1rem;
+    }
 
-        .Texto {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 5rem;
-            color: #1f2f46;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
+    .Texto {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 3rem;
+      margin: 2rem;
+      color: #1f2f46;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
 
-        .Texto h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #1caf0f;
-        }
+    .Texto h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #1caf0f;
+    }
 
-        .Texto p {
-            font-size: 1.05rem;
-            line-height: 1.8rem;
-        }
+    .Texto h3, .Texto h4 {
+      color: #1f4037;
+      margin-top: 1.5rem;
+    }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            color: #1f2f46;
-            background: #e8fbf1;
-        }
-    </style>
+    .Texto p,
+    .Texto {
+      font-size: 1.05rem;
+      line-height: 1.8rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #1f2f46;
+      background: #e8fbf1;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .Texto {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .Texto {
+        font-size: 0.95rem;
+        padding: 1.5rem 1rem;
+      }
+
+      .Texto h2 {
+        font-size: 1.4rem;
+      }
+
+      .Texto h3 {
+        font-size: 1.2rem;
+      }
+
+      .Texto h4 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <img src="IFex.png" alt="StudyHub Logo">
-        <nav>
-            <a href="IFex.html">Início</a>
-            <a href="Sobre.html">Sobre o App</a>
-            <a href="Function.html">Como Funciona</a>
-            <a href="KitRunner.html">Kit Runner</a>
-            <a href="Ajuda.html">Ajuda</a>
-            <a href="Pedido.html"><button class="neon-button">+ Criar Pedido</button></a>        </nav>
-    </header>
-    <section class="hero">
-        <h1>Seu problema acadêmico, resolvido AGORA.</h1>
-        <p>Conheça melhor sobre o aplicativo que vai te tirar dos perrengues! Iremos te falar tudo que você precisa
-            saber sobre o IFExpress</p>
+  <header>
+    <img src="IFex.png" alt="StudyHub Logo">
+    <nav>
+      <a href="IFex.html">Início</a>
+      <a href="Sobre.html">Sobre o App</a>
+      <a href="Function.html">Como Funciona</a>
+      <a href="KitRunner.html">Kit Runner</a>
+      <a href="Ajuda.html">Ajuda</a>
+      <a href="Pedido.html"><button class="neon-button">+ Criar Pedido</button></a>
+    </nav>
+  </header>
 
-    </section>
-    <div class="Texto">
-        <h2>Como funciona o nosso aplicativo?</h2>
-        O IFExpress é uma plataforma digital desenvolvida para atender às necessidades
-        acadêmicas emergenciais de estudantes,
-        oferecendo um serviço de logística colaborativa com agilidade e eficiência. O aplicativo
-        opera através de um sistema integrado que conecta estudantes necessitados a "Runners"
-        (entregadores credenciados), seguindo um fluxo estruturado em quatro etapas principais:
-        <br>
-        <br>
-        <h3>1. Solicitação de Serviço:</h3>
-        - Os usuários iniciam cadastrando seu pedido na plataforma, selecionando entre quatro modalidades de serviço:
-        busca de itens esquecidos, empréstimo de materiais, serviços de impressão/encadernação ou compra de novos
-        materiais.
-        - O sistema permite detalhar a solicitação com informações específicas, incluindo localização para coleta e
-        entrega, descrição do item necessário e valor de recompensa oferecido.
-        <br>
-        <br>
+  <section class="hero">
+    <h1>Seu problema acadêmico, resolvido AGORA.</h1>
+    <p>Conheça melhor sobre o aplicativo que vai te tirar dos perrengues! Iremos te falar tudo que você precisa
+      saber sobre o IFExpress</p>
+  </section>
 
-        <h3>2. Processamento e Atribuição:</h3>
-        - O algoritmo do aplicativo analisa a solicitação e identifica os Runners mais próximos e qualificados para
-        atender à demanda.
-        - Uma vez aceita a solicitação, o sistema notifica o usuário com os dados do Runner responsável, incluindo
-        avaliação, distância e tempo estimado para atendimento.
-        <br>
-        <br>
+  <div class="Texto">
+    <h2>Como funciona o nosso aplicativo?</h2>
+    <p>O IFExpress é uma plataforma digital desenvolvida para atender às necessidades acadêmicas emergenciais de estudantes, oferecendo um serviço de logística colaborativa com agilidade e eficiência. O aplicativo opera através de um sistema integrado que conecta estudantes necessitados a "Runners" (entregadores credenciados), seguindo um fluxo estruturado em quatro etapas principais:</p>
 
-        <h3>3. Acompanhamento em Tempo Real:</h3>
-        - A plataforma disponibiliza um sistema de rastreamento que permite monitorar em tempo real a localização do
-        Runner e o status da entrega.
-        - Um canal de comunicação direto entre usuário e Runner é estabelecido para eventuais ajustes ou informações
-        adicionais.
-        <br>
-        <br>
+    <h3>1. Solicitação de Serviço:</h3>
+    <p>- Os usuários iniciam cadastrando seu pedido na plataforma, selecionando entre quatro modalidades de serviço: busca de itens esquecidos, empréstimo de materiais, serviços de impressão/encadernação ou compra de novos materiais.</p>
+    <p>- O sistema permite detalhar a solicitação com informações específicas, incluindo localização para coleta e entrega, descrição do item necessário e valor de recompensa oferecido.</p>
 
-        <h3>4. Finalização e Avaliação:</h3>
-        - Após a conclusão do serviço, o sistema solicita que o usuário avalie a qualidade do atendimento.
-        - Como incentivo, a plataforma oferece um sistema de recompensas ("Moedas Study") que proporciona benefícios
-        para futuras utilizações do serviço.
-        <br>
-        <br>
-        <br>
-        <h2>Características Complementares:</h2>
+    <h3>2. Processamento e Atribuição:</h3>
+    <p>- O algoritmo do aplicativo analisa a solicitação e identifica os Runners mais próximos e qualificados para atender à demanda.</p>
+    <p>- Uma vez aceita a solicitação, o sistema notifica o usuário com os dados do Runner responsável, incluindo avaliação, distância e tempo estimado para atendimento.</p>
 
-        <h4>- Biblioteca Comunitária:</h4> Permite o aluguel de livros didáticos entre usuários.
-        <br>
-        <h4>- Pontos de Impressão:</h4> Integração com estabelecimentos parceiros para serviços rápidos de impressão.
-        <br>
-        <h4>- Sistema de Energia Compartilhada:</h4> Disponibiliza power banks em locais estratégicos para empréstimo
-        temporário.
-        <br>
-        <h4>- Grupos de Estudo:</h4> Facilita a formação de grupos para compartilhamento de custos logísticos.
-        <br>
+    <h3>3. Acompanhamento em Tempo Real:</h3>
+    <p>- A plataforma disponibiliza um sistema de rastreamento que permite monitorar em tempo real a localização do Runner e o status da entrega.</p>
+    <p>- Um canal de comunicação direto entre usuário e Runner é estabelecido para eventuais ajustes ou informações adicionais.</p>
 
-        <h4>- Mecânica de Pagamento:</h4>
-        Os valores são calculados com base em três componentes: distância percorrida, urgência do serviço e valor
-        solidário (para empréstimos). As transações são processadas integralmente pelo aplicativo, com opções de
-        pagamento via cartão de crédito, Pix ou utilizando as Moedas Study acumuladas.
-        <br>
-        <br>
-        O IFExpress opera com três níveis de prioridade, variando em prazo e custo: serviço padrão
-        (até 3 horas), modo urgente (até 60 minutos) e serviço noturno "Corujão"
-        (entre 22h e 6h). Todos os Runners passam por processo de validação de identidade
-        e capacitação antes de serem credenciados na plataforma, garantindo a segurança
-        e confiabilidade dos serviços prestados.</p>
-        <br>
-        <br>
-    </div>
-    <footer>
-        &copy; 2025 IFExpress — Por estudantes, para estudantes. #CorujaExpress 🦉
-    </footer>
+    <h3>4. Finalização e Avaliação:</h3>
+    <p>- Após a conclusão do serviço, o sistema solicita que o usuário avalie a qualidade do atendimento.</p>
+    <p>- Como incentivo, a plataforma oferece um sistema de recompensas ("Moedas Study") que proporciona benefícios para futuras utilizações do serviço.</p>
+
+    <h2>Características Complementares:</h2>
+    <h4>- Biblioteca Comunitária:</h4> <p>Permite o aluguel de livros didáticos entre usuários.</p>
+    <h4>- Pontos de Impressão:</h4> <p>Integração com estabelecimentos parceiros para serviços rápidos de impressão.</p>
+    <h4>- Sistema de Energia Compartilhada:</h4> <p>Disponibiliza power banks em locais estratégicos para empréstimo temporário.</p>
+    <h4>- Grupos de Estudo:</h4> <p>Facilita a formação de grupos para compartilhamento de custos logísticos.</p>
+    <h4>- Mecânica de Pagamento:</h4>
+    <p>Os valores são calculados com base em três componentes: distância percorrida, urgência do serviço e valor solidário (para empréstimos). As transações são processadas integralmente pelo aplicativo, com opções de pagamento via cartão de crédito, Pix ou utilizando as Moedas Study acumuladas.</p>
+    <p>O IFExpress opera com três níveis de prioridade, variando em prazo e custo: serviço padrão (até 3 horas), modo urgente (até 60 minutos) e serviço noturno "Corujão" (entre 22h e 6h). Todos os Runners passam por processo de validação de identidade e capacitação antes de serem credenciados na plataforma, garantindo a segurança e confiabilidade dos serviços prestados.</p>
+  </div>
+
+  <footer>
+    &copy; 2025 IFExpress — Por estudantes, para estudantes. #CorujaExpress 🦉
+  </footer>
 </body>
-
 </html>

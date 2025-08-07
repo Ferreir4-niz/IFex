@@ -25,6 +25,7 @@
     header {
       background: white;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       padding: 1rem 2rem;
@@ -32,13 +33,16 @@
     }
 
     header img {
-      height: 72px;
+      height: 64px;
+      margin-bottom: 0.5rem;
     }
 
     nav {
       display: flex;
-      gap: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
       align-items: center;
+      justify-content: center;
     }
 
     nav a {
@@ -53,15 +57,30 @@
       color: #04c51ee1;
     }
 
+    .neon-button {
+      background-color: #1caf0f;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .neon-button:hover {
+      background-color: #148b0b;
+    }
+
     main {
       flex: 1;
-      padding: 3rem 2rem;
+      padding: 2rem 1rem;
       max-width: 900px;
       margin: 0 auto;
     }
 
     main h1 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: #1caf0f;
       margin-bottom: 1rem;
       text-align: center;
@@ -86,7 +105,7 @@
 
     section h2 {
       color: #1f4037;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       margin-bottom: 1rem;
     }
 
@@ -102,7 +121,6 @@
       margin-bottom: 0.7rem;
     }
 
-    /* Botão voltar para a home */
     .btn-voltar {
       display: inline-block;
       background: #8ee920;
@@ -125,11 +143,71 @@
 
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #1f2f46;
       background: #e8fbf1;
       margin-top: auto;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      main {
+        padding: 1.5rem 1rem;
+      }
+
+      main h1 {
+        font-size: 1.8rem;
+      }
+
+      section h2 {
+        font-size: 1.4rem;
+      }
+
+      .btn-voltar {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header img {
+        height: 48px;
+      }
+
+      nav a,
+      .neon-button {
+        font-size: 0.9rem;
+      }
+
+      main h1 {
+        font-size: 1.5rem;
+      }
+
+      section {
+        padding: 1.2rem;
+      }
+
+      section h2 {
+        font-size: 1.2rem;
+      }
+
+      section ul {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -139,7 +217,7 @@
     <img src="IFex.png" alt="StudyHub Logo" />
     <nav>
       <a href="IFex.html">Início</a>
-      <a href="Sobre.html" aria-current="page">Sobre o App</a>
+      <a href="Sobre.html">Sobre o App</a>
       <a href="Function.html">Como Funciona</a>
       <a href="KitRunner.html" aria-current="page">Kit Runner</a>
       <a href="Ajuda.html">Ajuda</a>

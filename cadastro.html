@@ -28,8 +28,8 @@
       padding: 2.5rem;
       border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      max-width: 400px;
       width: 100%;
+      max-width: 420px;
       text-align: center;
       z-index: 1;
       display: none;
@@ -47,7 +47,7 @@
       font-weight: 600;
       text-align: left;
     }
-    input, select {
+    input, select, textarea {
       width: 100%;
       padding: 0.6rem;
       margin-bottom: 1rem;
@@ -103,9 +103,18 @@
       from { opacity: 0; transform: translate(-50%, -60%); }
       to   { opacity: 1; transform: translate(-50%, -50%); }
     }
-    /* Estilos adicionais para avaliação */
-    .avaliacao-container label {
-      margin-top: 1rem;
+
+    /* Responsividade */
+    @media (max-width: 480px) {
+      .form-container, .avaliacao-container {
+        padding: 1.5rem;
+      }
+      input, select, textarea, button {
+        font-size: 0.95rem;
+      }
+      .form-container h2, .avaliacao-container h2 {
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
@@ -144,7 +153,7 @@
         <option value="Macau">Macau</option>
         <option value="Mossoró">Mossoró</option>
         <option value="Natal-Central">Natal-Central</option>
-        <option value="Natal-Cidade Alta">Natal-Cidade Alta (inclui as unidades Rocas e Rio Branco)</option>
+        <option value="Natal-Cidade Alta">Natal-Cidade Alta (inclui Rocas e Rio Branco)</option>
         <option value="Natal-Zona Leste">Natal-Zona Leste</option>
         <option value="Natal-Zona Norte">Natal-Zona Norte</option>
         <option value="Nova Cruz">Nova Cruz</option>
@@ -164,7 +173,6 @@
 
       <button type="submit">Cadastrar</button>
     </form>
-
     <a class="voltar" href="IFex.html">&larr; Voltar para a Home</a>
   </div>
 
@@ -174,17 +182,17 @@
     <form id="form-avaliacao">
       <p>Por favor, responda as perguntas abaixo para avaliarmos seu perfil como Runner:</p>
 
-      <label for="experiencia">1. Você já teve experiência ajudando colegas com tarefas acadêmicas? (Sim/Não)</label>
+      <label for="experiencia">1. Já ajudou colegas com tarefas acadêmicas?</label>
       <select id="experiencia" name="experiencia" required>
         <option value="" disabled selected>Selecione</option>
         <option value="sim">Sim</option>
         <option value="nao">Não</option>
       </select>
 
-      <label for="disponibilidade">2. Quantas horas por dia, em média, você pode se dedicar como Runner?</label>
+      <label for="disponibilidade">2. Quantas horas por dia você pode se dedicar como Runner?</label>
       <input type="number" id="disponibilidade" name="disponibilidade" min="0" max="24" placeholder="Ex: 2" required />
 
-      <label for="responsabilidade">3. Como você avaliaria sua responsabilidade e comprometimento? (1 - Baixo a 5 - Alto)</label>
+      <label for="responsabilidade">3. Como você avaliaria sua responsabilidade? (1 a 5)</label>
       <select id="responsabilidade" name="responsabilidade" required>
         <option value="" disabled selected>Selecione</option>
         <option value="1">1 - Baixo</option>
@@ -194,7 +202,7 @@
         <option value="5">5 - Alto</option>
       </select>
 
-      <label for="comentarios">4. Comentários adicionais (opcional)</label>
+      <label for="comentarios">4. Comentários adicionais</label>
       <textarea id="comentarios" name="comentarios" rows="3" placeholder="Diga algo sobre você"></textarea>
 
       <button type="submit">Enviar Avaliação</button>
@@ -210,52 +218,35 @@
     const formAvaliacao = document.getElementById('form-avaliacao');
     const btnCancelarAvaliacao = document.getElementById('cancelar-avaliacao');
 
-    // Função para mostrar mensagem de sucesso e redirecionar
     function mostrarMensagemSucesso() {
       mensagemCadastro.innerHTML = '<strong>Usuário cadastrado com sucesso!</strong><br>Redirecionando para a página inicial...';
       mensagemCadastro.style.display = 'block';
-
       setTimeout(() => {
         mensagemCadastro.style.display = 'none';
         window.location.href = 'IFex.html';
       }, 3000);
     }
 
-    // Evento submit do cadastro
     formCadastro.addEventListener('submit', function(event) {
       event.preventDefault();
-
       const tipo = document.getElementById('tipo').value;
-
       if (tipo === 'runner') {
-        // Esconde formulário de cadastro
         containerCadastro.classList.remove('active');
-
-        // Mostra avaliação
         containerAvaliacao.classList.add('active');
       } else {
-        // Cadastro direto para estudante
         mostrarMensagemSucesso();
         formCadastro.reset();
       }
     });
 
-    // Evento submit da avaliação runner
     formAvaliacao.addEventListener('submit', function(event) {
       event.preventDefault();
-
-      // Aqui você pode fazer validações extras, enviar dados para servidor, etc.
-
-      // Após avaliação, mostrar mensagem de sucesso
       containerAvaliacao.classList.remove('active');
       mostrarMensagemSucesso();
-
-      // Resetar os formulários
       formCadastro.reset();
       formAvaliacao.reset();
     });
 
-    // Cancelar avaliação volta para o formulário de cadastro
     btnCancelarAvaliacao.addEventListener('click', () => {
       containerAvaliacao.classList.remove('active');
       containerCadastro.classList.add('active');

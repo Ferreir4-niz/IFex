@@ -22,6 +22,7 @@
     header {
       background: white;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       padding: 1rem 2rem;
@@ -29,13 +30,16 @@
     }
 
     header img {
-      height: 72px;
+      height: 64px;
+      margin-bottom: 0.5rem;
     }
 
     nav {
       display: flex;
       gap: 1.5rem;
       align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     nav a {
@@ -56,15 +60,15 @@
       border: none;
       border-radius: 50px;
       font-weight: bold;
-      box-shadow: 0 0 12px #8ee920;
+      box-shadow: 0 0 12px #8ee920, 0 0 20px #8ee920;
       cursor: pointer;
-      transition: 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
 
     .neon-button:hover {
       background: #1f2f46;
       color: #8ee920;
-      box-shadow: 0 0 18px #1f2f46;
+      box-shadow: 0 0 18px #1f2f46, 0 0 30px #1f2f46;
     }
 
     .hero {
@@ -92,6 +96,7 @@
       backdrop-filter: blur(10px);
       border-radius: 10px;
       padding: 5rem;
+      margin: 2rem;
       color: #1f2f46;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease;
@@ -115,6 +120,29 @@
       color: #1f2f46;
       background: #e8fbf1;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .Texto {
+        padding: 2rem;
+        margin: 1rem;
+      }
+    }
   </style>
 </head>
 
@@ -127,7 +155,9 @@
       <a href="Function.html">Como Funciona</a>
       <a href="KitRunner.html">Kit Runner</a>
       <a href="Ajuda.html">Ajuda</a>
-      <a href="Pedido.html"><button class="neon-button">+ Criar Pedido</button></a>
+      <a href="Pedido.html">
+        <button class="neon-button" aria-label="Criar novo pedido">+ Criar Pedido</button>
+      </a>
     </nav>
   </header>
 
@@ -140,19 +170,19 @@
     <h2>Informações Institucionais</h2>
     <p>
       O <strong>IFExpress</strong> é um aplicativo inovador concebido
-       com o propósito de atender às necessidades emergenciais e logísticas
-        da comunidade estudantil do IFRN. Fundado em <strong>julho de 2025</strong>, o projeto 
-        nasceu da visão colaborativa de <strong>Geyza Gonçalves, Bianca Pereira, 
-            Flávia Móises</strong> e <strong>Nícolas Avelino</strong>, estudantes do campus Parnamirim,
-            comprometidos com o avanço da educação por meio da tecnologia.
+      com o propósito de atender às necessidades emergenciais e logísticas
+      da comunidade estudantil do IFRN. Fundado em <strong>julho de 2025</strong>, o projeto
+      nasceu da visão colaborativa de <strong>Geyza Gonçalves, Bianca Pereira,
+        Flávia Móises</strong> e <strong>Nícolas Avelino</strong>, estudantes do campus Parnamirim,
+      comprometidos com o avanço da educação por meio da tecnologia.
       <br><br>
       O IFExpress se destaca por sua proposta única e acessível, priorizando
-       soluções práticas, acessibilidade e fortalecimento da rede de apoio entre alunos.
-        A plataforma reflete os valores de empatia, inovação e sustentabilidade, colocando 
-        os estudantes no centro de uma comunidade ativa, interligada e funcional.
+      soluções práticas, acessibilidade e fortalecimento da rede de apoio entre alunos.
+      A plataforma reflete os valores de empatia, inovação e sustentabilidade, colocando
+      os estudantes no centro de uma comunidade ativa, interligada e funcional.
       <br><br>
-      Idealizado para ser mais que uma ferramenta digital, o StudyHub Express representa 
-      um movimento estudantil inteligente — comprometido com o tempo, a urgência e 
+      Idealizado para ser mais que uma ferramenta digital, o StudyHub Express representa
+      um movimento estudantil inteligente — comprometido com o tempo, a urgência e
       a realidade daqueles que enfrentam os desafios do ensino médio, técnico e superior.
     </p>
   </div>
