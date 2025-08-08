@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Perfil - IFEX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f9ff;
+      color: #1f2f46;
+    }
+
+    header {
+      background: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 64px;
+      margin-bottom: 0.5rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1f4037;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #04c51ee1;
+    }
+
+    .neon-button {
+      background: #8ee920;
+      color: #1f2f46;
+      padding: 0.6rem 1.4rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 0 12px #8ee920;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    .neon-button:hover {
+      background: #1f2f46;
+      color: #8ee920;
+      box-shadow: 0 0 18px #1f2f46;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #1f4037, #a8e063);
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
+      padding: 0 1rem;
+    }
+
+    .glass-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 3rem 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      color: #1f2f46;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      color: #1caf0f;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #1f2f46;
+      background: #e8fbf1;
+    }
+
+    .user-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .profile-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #8ee920;
+      transition: transform 0.3s;
+    }
+
+    .profile-icon:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Mantenha o header igual às outras páginas */
+    header {
+      background: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    }
+    
+    /* Adicione estilos específicos para a página de perfil */
+    .profile-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+    }
+    
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #8ee920;
+    }
+    
+    .profile-info h2 {
+      color: #1f4037;
+      margin-bottom: 0.5rem;
+    }
+    
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+      background: #f4f9ff;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .stat-card h3 {
+      color: #1caf0f;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="IFex.png" alt="StudyHub Logo">
+    <nav>
+      <a href="IFex.html">Início</a> 
+      <a href="Sobre.html">Sobre o App</a>
+      <a href="Function.html">Como Funciona</a>
+      <a href="KitRunner.html">Kit Runner</a>
+      <a href="Ajuda.html">Ajuda</a>
+      <div class="user-area">
+        <a href="perfil.html" id="profile-link">
+          <img src="user-icon.png" alt="Perfil" class="profile-icon">
+        </a>
+        <a href="login.html" id="login-btn" style="display:none">Entrar</a>
+        <a href="Pedido.html"><button class="neon-button">+ Criar Pedido</button></a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="profile-container">
+    <div class="profile-header">
+      <img src="user-icon.png" alt="Foto do perfil" class="profile-pic" id="profile-pic">
+      <div class="profile-info">
+        <h2 id="profile-name">Nome do Usuário</h2>
+        <p id="profile-course">Curso | Campus</p>
+        <p id="profile-email">email@escolar.ifrn.edu.br</p>
+      </div>
+    </div>
+    
+    <div class="profile-stats">
+      <div class="stat-card">
+        <h3>Pedidos realizados</h3>
+        <p id="orders-count">12</p>
+      </div>
+      <div class="stat-card">
+        <h3>Como Runner</h3>
+        <p id="runner-stats">5 entregas</p>
+      </div>
+      <div class="stat-card">
+        <h3>Avaliação</h3>
+        <p id="user-rating">⭐ 4.8</p>
+      </div>
+    </div>
+    
+    <section>
+      <h2>Histórico recente</h2>
+      <!-- Aqui viria a lista de pedidos recentes -->
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 IFExpress — Por estudantes, para estudantes. #CorujaExpress 🦉
+  </footer>
+
+  <script>
+    // Carrega os dados do usuário
+    function loadProfile() {
+      const userData = JSON.parse(localStorage.getItem('ifexpress_user'));
+      
+      if (userData) {
+        document.getElementById('profile-name').textContent = userData.name || 'Nome do Usuário';
+        document.getElementById('profile-course').textContent = 
+          `${userData.course || 'Curso'} | ${userData.campus || 'Campus'}`;
+        document.getElementById('profile-email').textContent = userData.email || '';
+        
+        if (userData.photo) {
+          document.getElementById('profile-pic').src = userData.photo;
+        }
+        
+        // Aqui você carregaria os dados reais do backend
+      }
+    }
+    
+    window.addEventListener('DOMContentLoaded', loadProfile);
+  </script>
+</body>
+</html>

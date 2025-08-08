@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +26,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 2rem;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
     }
 
     header img {
@@ -104,7 +105,7 @@
       border-radius: 20px;
       padding: 2rem;
       color: #1f2f46;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease;
     }
 
@@ -124,6 +125,33 @@
       font-size: 0.9rem;
       color: #1f2f46;
       background: #e8fbf1;
+    }
+
+    .user-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .profile-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #8ee920;
+      transition: transform 0.3s;
+    }
+
+    .profile-icon:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .user-area {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+      }
     }
 
     /* Responsividade */
@@ -177,22 +205,30 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <img src="IFex.png" alt="StudyHub Logo">
     <nav>
-      <a href="IFex.html">Início</a> 
+      <a href="IFex.html">Início</a>
       <a href="Sobre.html">Sobre o App</a>
       <a href="Function.html">Como Funciona</a>
       <a href="KitRunner.html">Kit Runner</a>
       <a href="Ajuda.html">Ajuda</a>
-      <a href="Pedido.html"><button class="neon-button">+ Criar Pedido</button></a>
+      <div class="user-area">
+        <a href="perfil.html" id="profile-link" style="display:none">
+          <img src="user-icon.png" alt="Perfil" class="profile-icon">
+        </a>
+        <a href="perfil.html" id="login-btn">Entrar</a>
+        <a href="Pedido.html"><button class="neon-button">+ Criar Pedido</button></a>
+      </div>
     </nav>
   </header>
 
   <section class="hero">
     <h1>Seu problema acadêmico, resolvido AGORA.</h1>
-    <p>Com o IFExpress, você recebe aquele carregador esquecido, a apostila impressa ou até um notebook emprestado em menos de 1h – direto no campus. Tudo por preços simbólicos e com a ajuda de colegas!</p>
+    <p>Com o IFExpress, você recebe aquele carregador esquecido, a apostila impressa ou até um notebook emprestado em
+      menos de 1h – direto no campus. Tudo por preços simbólicos e com a ajuda de colegas!</p>
     <a href="cadastro.html"><button class="neon-button">Começar Agora</button></a>
   </section>
 
@@ -218,5 +254,31 @@
   <footer>
     &copy; 2025 IFExpress — Por estudantes, para estudantes. #CorujaExpress 🦉
   </footer>
+
 </body>
+<script>
+  // Verifica se o usuário está "logado" (simulação)
+  function checkLogin() {
+    // Na implementação real, você verificaria no localStorage/sessionStorage
+    const isLoggedIn = localStorage.getItem('ifexpress_user') !== null;
+    
+    if (isLoggedIn) {
+      document.getElementById('login-btn').style.display = 'none';
+      document.getElementById('profile-link').style.display = 'block';
+      
+      // Carrega a foto do perfil se existir
+      const userData = JSON.parse(localStorage.getItem('ifexpress_user'));
+      if (userData.photo) {
+        document.querySelector('.profile-icon').src = userData.photo;
+      }
+    } else {
+      document.getElementById('login-btn').style.display = 'block';
+      document.getElementById('profile-link').style.display = 'none';
+    }
+  }
+
+  // Executa quando a página carrega
+  window.addEventListener('DOMContentLoaded', checkLogin);
+</script>
+
 </html>
